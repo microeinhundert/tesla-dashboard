@@ -1,0 +1,37 @@
+// alternative font
+$ui-font: 'Montserrat', sans-serif;
+
+// original font
+// $ui-font: 'Gotham', sans-serif;
+
+// colors
+$black: #000;
+$white: #fff;
+$green: #00b300;
+$blue: #1566cf;
+
+$grey-100: lighten($black, 7%);
+$grey-200: lighten($black, 14%);
+$grey-300: lighten($black, 33%);
+$grey-400: lighten($black, 40%);
+$grey-500: lighten($black, 57%);
+$grey-600: lighten($black, 87%);
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $index: null, $all: null) {
+  position: $position;
+  top: $all $top;
+  right: $all $right;
+  bottom: $all $bottom;
+  left: $all $left;
+  z-index: $index;
+}
+
+@mixin absolute($args...) {
+   @include position(absolute, $args...);
+}
+@mixin fixed($args...) {
+   @include position(fixed, $args...);
+}
+@mixin relative($args...) {
+   @include position(relative, $args...);
+}
