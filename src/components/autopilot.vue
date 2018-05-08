@@ -1,19 +1,21 @@
 <template>
-<div class="autopilot-container">
-  <figure class="car"></figure>
-  <div class="road">
-    <transition name="fade">
-      <div v-if="autopilot.detectedLane" class="lane h-relative"></div>
-    </transition>
-    <div class="road-backdrop"></div>
+  <div class="autopilot-container">
+    <figure
+      class="car"
+      :style="`background-image: url(${require('../assets/car.png')});`"/>
+    <div class="road">
+      <transition name="fade">
+        <div
+          v-if="autopilot.detectedLane"
+          class="lane h-relative"/>
+      </transition>
+      <div class="road-backdrop"/>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
-import {
-  mapGetters,
-} from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
@@ -34,7 +36,7 @@ export default {
     }
     &:before {
         @include absolute($all: 0, $index: 1);
-        background: ease-in-out-sine-gradient(to top, transparent, #0E0F0E);
+        background: linear-gradient(to top, transparent, cubic-bezier(0.48, 0.30, 0.64, 1.00), #0E0F0E);
         content: '';
     }
     .car {
@@ -44,7 +46,6 @@ export default {
         }
         z-index: 1;
         height: 250px;
-        background-image: url("../../static/images/car.png");
     }
     .road {
         display: flex;

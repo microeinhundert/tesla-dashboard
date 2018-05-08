@@ -1,39 +1,65 @@
 <template>
-<div id="app" class="h-center-element">
-  <div class="dashboard-container h-relative">
-    <transition name="fade" appear>
-      <main class="dashboard-inner h-relative">
-        <section class="l-dashboard-section l-left">
-        </section>
-        <section class="l-dashboard-section l-middle h-relative">
-          <travel-info></travel-info>
-        </section>
-        <section class="l-dashboard-section l-right">
-          <component is="energyGraph"></component>
-        </section>
-        <bottom-bar></bottom-bar>
-      </main>
-    </transition>
-    <autopilot></autopilot>
-  </div>
-  <div class="global-defs-container">
-    <svg width="0" height="0" viewBox="0 0 1920 720">
+  <div
+    id="app"
+    class="h-center-element">
+    <div class="dashboard-container h-relative">
+      <transition
+        name="fade"
+        appear>
+        <main class="dashboard-inner h-relative">
+          <section class="l-dashboard-section l-left"/>
+          <section class="l-dashboard-section l-middle h-relative">
+            <travel-info/>
+          </section>
+          <section class="l-dashboard-section l-right">
+            <component is="energyGraph"/>
+          </section>
+          <bottom-bar/>
+        </main>
+      </transition>
+      <autopilot/>
+    </div>
+    <div class="global-defs-container">
+      <svg
+        width="0"
+        height="0"
+        viewBox="0 0 1920 720">
         <defs>
           <clipPath id="dashboard-mask">
-            <path d="M763.302752,0 L1762.43593,0 C1801.12282,0 1842.40677,29.7496323 1854.12475,66.6174302 C1854.12475,66.6174302 1920,252.359375 1920,376 C1920,499.640625 1818.40525,659.25552 1818.40525,659.25552 C1799.15803,692.80377 1752.20115,720 1713.51692,720 L763.302752,720 L206.483076,720 C167.798846,720 120.841972,692.80377 101.594755,659.25552 C101.594755,659.25552 0,499.640625 0,376 C0,252.359375 65.8752479,66.6174302 65.8752479,66.6174302 C77.5932295,29.7496323 118.877182,0 157.564071,0 L763.302752,0 Z"></path>
+            <path d="M763.302752,0 L1762.43593,0 C1801.12282,0 1842.40677,29.7496323 1854.12475,66.6174302 C1854.12475,66.6174302 1920,252.359375 1920,376 C1920,499.640625 1818.40525,659.25552 1818.40525,659.25552 C1799.15803,692.80377 1752.20115,720 1713.51692,720 L763.302752,720 L206.483076,720 C167.798846,720 120.841972,692.80377 101.594755,659.25552 C101.594755,659.25552 0,499.640625 0,376 C0,252.359375 65.8752479,66.6174302 65.8752479,66.6174302 C77.5932295,29.7496323 118.877182,0 157.564071,0 L763.302752,0 Z"/>
           </clipPath>
-          <linearGradient id="energy-graph-gradient" x1="0%" y1="100%" x2="0%" y2="0%" spreadMethod="pad">
-            <stop offset="5%" stop-color="#a65223" stop-opacity="0" />
-            <stop offset="95%" stop-color="#a65223" stop-opacity="0.7" />
+          <linearGradient
+            id="energy-graph-gradient"
+            x1="0%"
+            y1="100%"
+            x2="0%"
+            y2="0%"
+            spreadMethod="pad">
+            <stop
+              offset="5%"
+              stop-color="#a65223"
+              stop-opacity="0" />
+            <stop
+              offset="95%"
+              stop-color="#a65223"
+              stop-opacity="0.7" />
           </linearGradient>
-          <linearGradient id="energy-graph-line-gradient" spreadMethod="pad">
-            <stop offset="40%" stop-color="#e08222" stop-opacity="0.5" />
-            <stop offset="70%" stop-color="#e08222" stop-opacity="1" />
+          <linearGradient
+            id="energy-graph-line-gradient"
+            spreadMethod="pad">
+            <stop
+              offset="40%"
+              stop-color="#e08222"
+              stop-opacity="0.5" />
+            <stop
+              offset="70%"
+              stop-color="#e08222"
+              stop-opacity="1" />
           </linearGradient>
         </defs>
-    </svg>
+      </svg>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -75,7 +101,7 @@ body {
     overflow: hidden;
     min-width: 1920px;
     height: 720px;
-    background: ease-in-out-sine-gradient(to top, #3a3b3c, #0E0F0E);
+    background: linear-gradient(to top, #3a3b3c, cubic-bezier(0.48, 0.30, 0.64, 1.00), #0E0F0E);
     color: $grey-600;
     font-family: $ui-font;
     letter-spacing: 1.5px;

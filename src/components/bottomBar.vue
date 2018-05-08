@@ -1,27 +1,31 @@
 <template>
-<div class="bottom-bar">
-  <div class="l-container l-left">
-    <div class="battery-status-container">
-      <div class="battery-status-icon h-relative">
-        <div class="battery-fill" :style="{ width: `${battery.percentage}%` }"></div>
+  <div class="bottom-bar">
+    <div class="l-container l-left">
+      <div class="battery-status-container">
+        <div class="battery-status-icon h-relative">
+          <div
+            :style="{ width: `${battery.percentage}%` }"
+            class="battery-fill"/>
+        </div>
+        <span class="range-left h-margin-left-lg">{{ battery.range }}<span class="unit h-font-muted h-margin-left-sm">{{ units.distance }}</span></span>
       </div>
-      <span class="range-left h-margin-left-lg">{{ battery.range }}<span class="unit h-font-muted h-margin-left-sm">{{ units.distance }}</span></span>
+      <div class="temperature h-margin-left-lg">15°<span class="unit h-font-muted h-margin-left-sm">{{ units.temperature }}</span></div>
     </div>
-    <div class="temperature h-margin-left-lg">15°<span class="unit h-font-muted h-margin-left-sm">{{ units.temperature }}</span></div>
-  </div>
-  <div class="l-container l-right">
-    <div class="clock">{{ hours }}<span>:</span>{{ minutes }}</div>
-    <div class="transmission-gears h-margin-left-lg">
-      <span v-for="gear in gears" class="gear" :class="{ 'active' : transmission.currentGear === gear }">{{ gear }}</span>
+    <div class="l-container l-right">
+      <div class="clock">{{ hours }}<span>:</span>{{ minutes }}</div>
+      <div class="transmission-gears h-margin-left-lg">
+        <span
+          v-for="gear in gears"
+          :key="gear"
+          :class="{ 'active' : transmission.currentGear === gear }"
+          class="gear">{{ gear }}</span>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import {
-  mapGetters,
-} from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   data: () => ({

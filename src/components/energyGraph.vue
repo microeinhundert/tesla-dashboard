@@ -1,33 +1,55 @@
 <template>
-<div class="consumption-container h-relative">
-  <svg class="outer-consumption-graph">
-    <g class="graph-inner">
-      <g class="ring">
-        <path class="fill" d="M5 85a197 197 0 0 1 345 179"/>
-        <rect class="breakpoint" rx="2" transform="rotate(18 348 261)"/>
-        <path class="outer" d="M0 81a204 204 0 1 1 280 290"/>
+  <div class="consumption-container h-relative">
+    <svg class="outer-consumption-graph">
+      <g class="graph-inner">
+        <g class="ring">
+          <path
+            class="fill"
+            d="M5 85a197 197 0 0 1 345 179"/>
+          <rect
+            class="breakpoint"
+            rx="2"
+            transform="rotate(18 348 261)"/>
+          <path
+            class="outer"
+            d="M0 81a204 204 0 1 1 280 290"/>
+        </g>
+        <text
+          class="value"
+          x="4"
+          y="34">400</text>
+        <text
+          class="value"
+          x="157"
+          y="19">200</text>
+        <text
+          class="value"
+          x="289"
+          y="102">100</text>
+        <text
+          class="value"
+          x="340"
+          y="248">kW</text>
+        <text
+          class="value"
+          x="293"
+          y="386">-50</text>
       </g>
-        <text class="value" x="4" y="34">400</text>
-        <text class="value" x="157" y="19">200</text>
-        <text class="value" x="289" y="102">100</text>
-        <text class="value" x="340" y="248">kW</text>
-        <text class="value" x="293" y="386">-50</text>
-    </g>
-  </svg>
-  <div class="inner-container">
-    <div ref="consumptionGraph" class="consumption-graph"></div>
-    <div class="consumption-info h-center-text">
-      <p class="average-consumption h-font-muted">Avg. <span>274</span> {{ units.energy }}/{{ units.distance }}</p>
-      <a class="distance h-font-muted">Past 30 {{ units.distance }}</a>
+    </svg>
+    <div class="inner-container">
+      <div
+        ref="consumptionGraph"
+        class="consumption-graph"/>
+      <div class="consumption-info h-center-text">
+        <p class="average-consumption h-font-muted">Avg. <span>274</span> {{ units.energy }}/{{ units.distance }}</p>
+        <a class="distance h-font-muted">Past 30 {{ units.distance }}</a>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import {
-  mapGetters,
-} from 'vuex';
+import { mapGetters } from 'vuex';
 import MG from 'metrics-graphics';
 import 'metrics-graphics/dist/metricsgraphics.css';
 
@@ -40,37 +62,37 @@ export default {
       setTimeout(() => {
         MG.data_graphic({
           data: [{
-              distance: 20,
-              consumption: 12,
-            },
-            {
-              distance: 40,
-              consumption: 18,
-            },
-            {
-              distance: 60,
-              consumption: 20,
-            },
-            {
-              distance: 80,
-              consumption: 32,
-            },
-            {
-              distance: 100,
-              consumption: 15,
-            },
-            {
-              distance: 120,
-              consumption: 24,
-            },
-            {
-              distance: 140,
-              consumption: 30,
-            },
-            {
-              distance: 160,
-              consumption: 25,
-            },
+            distance: 20,
+            consumption: 12,
+          },
+          {
+            distance: 40,
+            consumption: 18,
+          },
+          {
+            distance: 60,
+            consumption: 20,
+          },
+          {
+            distance: 80,
+            consumption: 32,
+          },
+          {
+            distance: 100,
+            consumption: 15,
+          },
+          {
+            distance: 120,
+            consumption: 24,
+          },
+          {
+            distance: 140,
+            consumption: 30,
+          },
+          {
+            distance: 160,
+            consumption: 25,
+          },
           ],
           height: 270,
           target: this.$refs.consumptionGraph,
