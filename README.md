@@ -1,4 +1,4 @@
-![Screenshot](src/assets/images/screenshot.jpg)
+![Screenshot](src/assets/screenshot.jpg)
 
 # tesla-dashboard
 
